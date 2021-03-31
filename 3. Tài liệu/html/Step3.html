@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bước 3</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <form>
+      <!-- Option radio button -->
+      <div class="option">
+        <label for="auto">
+          <input
+            type="radio"
+            id="auto"
+            name="option"
+            value="auto"
+            checked="checked"
+          />
+          Tự động
+        </label>
+        <div>
+          <label for="quantity">Số buổi (từ 1 đến 5):</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="5" />
+        </div>
+
+        <br />
+        <label for="manual">
+          <input type="radio" id="manual" name="option" value="manual" />
+          Thủ công
+        </label>
+        <div>
+          <form>
+            <label for="myfile">Nhập File danh sách nhóm:</label>
+            <input type="file" id="myfile" name="myfile" />
+          </form>
+        </div>
+      </div>
+    </form>
+
+    <!-- Tab links -->
+    <div class="tab">
+      <button
+        class="tablinks"
+        onclick="openTab(event, 'Buoi 1')"
+        id="defaultOpen"
+      >
+        Buổi 1
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Buoi 2')">
+        Buổi 2
+      </button>
+      <button class="tablinks" onclick="openTab(event, 'Buoi 3')">
+        Buổi 3
+      </button>
+    </div>
+
+    <!-- Tab content -->
+    <div id="Buoi 1" class="tabcontent">
+      <h3>Buổi 1</h3>
+      <form>
+        <label for="testdate">Ngày thi:</label>
+        <input type="date" id="testdate" name="testdate" />
+      </form>
+      <table style="width: 100%">
+        <tr>
+          <th>STT</th>
+          <th>MSSV</th>
+          <th>Tên SV</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+        </tr>
+      </table>
+    </div>
+    <div id="Buoi 2" class="tabcontent">
+      <h3>Buổi 2</h3>
+      <form>
+        <label for="testdate">Ngày thi:</label>
+        <input type="date" id="testdate" name="testdate" />
+      </form>
+      <table style="width: 100%">
+        <tr>
+          <th>STT</th>
+          <th>MSSV</th>
+          <th>Tên SV</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+        </tr>
+      </table>
+    </div>
+    <div id="Buoi 3" class="tabcontent">
+      <h3>Buổi 3</h3>
+      <form>
+        <label for="testdate">Ngày thi:</label>
+        <input type="date" id="testdate" name="testdate" />
+      </form>
+      <table style="width: 100%">
+        <tr>
+          <th>STT</th>
+          <th>MSSV</th>
+          <th>Tên SV</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Export button -->
+    <div class="export">
+      <button class="exportbtn" onclick="exportExcel(event)">
+        Xuất danh sách thi
+      </button>
+    </div>
+  </body>
+  <script>
+    // Get the element with id="defaultOpen" and click on it
+    document.getElementById("defaultOpen").click();
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+  </script>
+</html>
