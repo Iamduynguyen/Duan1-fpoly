@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/views/hello.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/student-mgr.jsp=UTF-8
+encoding//src/poly/controller/StudentMgrController.java=UTF-8
