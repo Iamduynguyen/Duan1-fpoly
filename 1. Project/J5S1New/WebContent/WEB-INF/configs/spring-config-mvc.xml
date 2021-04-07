@@ -34,6 +34,11 @@
 <!-- Spring MVC Annotation -->
 	<context:annotation-config />
 	<mvc:annotation-driven/>
+	<!-- css -->
+	  <mvc:annotation-driven />
+  <mvc:resources mapping="assets/**"
+  		location="/assets/" />
+  
 	
 	<!-- Cấu hình view -->
 	<bean id="viewResolver" 
