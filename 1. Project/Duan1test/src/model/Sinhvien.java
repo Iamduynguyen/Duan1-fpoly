@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mode;
+package model;
 
 /**
  *
@@ -15,7 +15,15 @@ public class Sinhvien {
     private boolean checkfalse;
     private String malop;
     private int tilenghi;
-    private String tst;
+    private String ngaythi;
+
+    public String getNgaythi() {
+        return ngaythi;
+    }
+
+    public void setNgaythi(String ngaythi) {
+        this.ngaythi = ngaythi;
+    }
     
     
     

@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import mode.Diem;
-import mode.Lop;
-import mode.Sinhvien;
+import model.Diem;
+import model.Lop;
+import model.Sinhvien;
 
 /**
  *
