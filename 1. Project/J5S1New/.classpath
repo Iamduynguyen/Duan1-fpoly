@@ -10,8 +10,14 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-11.0.10">
 		<attributes>
+			<attribute name="module" value="true"/>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/haita/DuAn1/3. Tài liệu/Tài nguyên đọc excel cho Netbeans/commons-collections4-4.1.jar"/>
+	<classpathentry kind="lib" path="C:/Users/haita/DuAn1/3. Tài liệu/Tài nguyên đọc excel cho Netbeans/poi-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/haita/DuAn1/3. Tài liệu/Tài nguyên đọc excel cho Netbeans/poi-ooxml-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/haita/DuAn1/3. Tài liệu/Tài nguyên đọc excel cho Netbeans/poi-ooxml-schemas-3.17.jar"/>
+	<classpathentry kind="lib" path="C:/Users/haita/DuAn1/3. Tài liệu/Tài nguyên đọc excel cho Netbeans/xmlbeans-2.6.0.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
