@@ -8,7 +8,7 @@
 </head>
 <body>
 	<a href="say-hello.htm">Bước 1</a>
-	<a href="user/form.htm">Bước 2</a>
-	<a href="student/form.htm">register</a>
+	<a href="welcome.htm">Bước 2</a>
+	
 </body>
 </html>
