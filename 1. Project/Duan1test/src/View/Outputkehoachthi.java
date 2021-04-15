@@ -401,7 +401,6 @@ public class Outputkehoachthi extends javax.swing.JFrame {
 
     private void btntet1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntet1ActionPerformed
         // TODO add your handling code here:
-        _lstSV = SVChiacathi.fake();
         int sobuoi = 0;
         int sosv = 0;
         try {

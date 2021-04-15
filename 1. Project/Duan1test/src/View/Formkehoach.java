@@ -168,7 +168,7 @@ public class Formkehoach extends javax.swing.JFrame {
         btnquiz.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnquiz.setForeground(new java.awt.Color(255, 255, 255));
         btnquiz.setIcon(new javax.swing.ImageIcon("D:\\duan1test\\Duan1test\\img\\file.png")); // NOI18N
-        btnquiz.setText("Nhập File điểm Quiz");
+        btnquiz.setText("Nhập file Excel");
         btnquiz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnquizActionPerformed(evt);
@@ -180,7 +180,7 @@ public class Formkehoach extends javax.swing.JFrame {
         btndd2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btndd2.setForeground(new java.awt.Color(255, 255, 255));
         btndd2.setIcon(new javax.swing.ImageIcon("D:\\duan1test\\Duan1test\\img\\file.png")); // NOI18N
-        btndd2.setText("Nhập File điểm danh");
+        btndd2.setText("Chia lịch thi");
         btndd2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndd2ActionPerformed(evt);
@@ -257,6 +257,9 @@ public class Formkehoach extends javax.swing.JFrame {
 
     private void btndd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndd2ActionPerformed
         // TODO add your handling code here:
+        Outputkehoachthi x =  new Outputkehoachthi();
+        Outputkehoachthi.getlstSV(_lstSV);
+        x.setVisible(true);
     }//GEN-LAST:event_btndd2ActionPerformed
 
     /**
@@ -295,8 +298,6 @@ public class Formkehoach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btndd;
-    private javax.swing.JButton btndd1;
     private javax.swing.JButton btndd2;
     private javax.swing.JButton btnquiz;
     private javax.swing.JLabel jLabel1;

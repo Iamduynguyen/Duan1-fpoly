@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
@@ -282,7 +282,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="D:\duan1test\Duan1test\img\file.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nh&#x1ead;p File &#x111;i&#x1ec3;m Quiz"/>
+        <Property name="text" type="java.lang.String" value="Nh&#x1ead;p file Excel"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnquizActionPerformed"/>
@@ -307,7 +307,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="D:\duan1test\Duan1test\img\file.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nh&#x1ead;p File &#x111;i&#x1ec3;m danh"/>
+        <Property name="text" type="java.lang.String" value="Chia l&#x1ecb;ch thi"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndd2ActionPerformed"/>
