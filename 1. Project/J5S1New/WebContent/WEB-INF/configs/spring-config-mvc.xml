@@ -31,21 +31,20 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
 		http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.0.xsd">
 
-<!-- Spring MVC Annotation -->
+	<!-- Spring MVC Annotation -->
 	<context:annotation-config />
-	<mvc:annotation-driven/>
+	<mvc:annotation-driven />
 	<!-- css -->
-	  <mvc:annotation-driven />
-  <mvc:resources mapping="assets/**"
-  		location="/assets/" />
-  
-	
+	<mvc:annotation-driven />
+	<mvc:resources mapping="assets/**" location="/assets/" />
+
+
 	<!-- Cấu hình view -->
-	<bean id="viewResolver" 
-		p:prefix="/WEB-INF/views/" p:suffix=".jsp"
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver"/>
-   	
-   	<!-- Cấu hình package chứa các controller -->
-	<context:component-scan base-package="poly.controller"/>
+	<bean id="viewResolver" p:prefix="/WEB-INF/views/" p:suffix=".jsp"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver" />
+
+	<!-- Cấu hình package chứa các controller -->
+	<context:component-scan
+		base-package="poly.controller" />
 
 </beans>
