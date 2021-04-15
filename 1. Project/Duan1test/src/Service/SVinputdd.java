@@ -83,10 +83,7 @@ public class SVinputdd {
     
     
     public static void main(String[] args) {
-        Sheet x = getwb("C:\\Users\\dell\\Desktop\\ppp.xlsx").getSheetAt(0);
-        String b = x.getRow(3).getCell(1).toString();
-        String l ="C:\\Users\\dell\\Desktop\\shit.xlsx";
-        System.out.println(getListdd(getwb(l)).get(22).getTilenghi());
+        
     }
 
 }
