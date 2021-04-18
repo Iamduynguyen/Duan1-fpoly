@@ -16,6 +16,8 @@ public class Sinhvien {
     private String malop;
     private int tilenghi;
     private String ngaythi;
+    private String trangthai;
+    private int cathi= 0;
 
     public String getNgaythi() {
         return ngaythi;
@@ -23,6 +25,22 @@ public class Sinhvien {
 
     public void setNgaythi(String ngaythi) {
         this.ngaythi = ngaythi;
+    }
+
+    public void setTrangthai(String trangthai) {
+        this.trangthai = trangthai;
+    }
+
+    public String getTrangthai() {
+        return trangthai;
+    }
+
+    public int getCathi() {
+        return cathi;
+    }
+
+    public void setCathi(int cathi) {
+        this.cathi = cathi;
     }
     
     

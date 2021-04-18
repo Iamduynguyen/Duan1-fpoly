@@ -9,6 +9,7 @@ import Service.SVcheckdk;
 import Service.SVinput;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Diem;
@@ -19,7 +20,7 @@ import model.Sinhvien;
  *
  * @author dell
  */
-public class Formkehoach extends javax.swing.JFrame {
+public class Formkehoach extends JInternalFrame {
 
     DefaultTableModel tbmodel = new DefaultTableModel();
 
@@ -34,7 +35,7 @@ public class Formkehoach extends javax.swing.JFrame {
 
     static Lop _lop1 = new Lop();
     static List<Sinhvien> _lstSV = new ArrayList<>();
-    static List<Diem> _lstDiems = new ArrayList<>();
+//    static List<Diem> _lstDiems = new ArrayList<>();
 
     public static void getlop(Lop x) {
         _lop1 = x;
@@ -44,9 +45,9 @@ public class Formkehoach extends javax.swing.JFrame {
         _lstSV = lstsv;
     }
 
-    public static void getlstdiem(List<Diem> lst) {
-        _lstDiems = lst;
-    }
+//    public static void getlstdiem(List<Diem> lst) {
+//        _lstDiems = lst;
+//    }
 
     private void loadtbok() {
         tbmodel = (DefaultTableModel) tbdudk.getModel();
@@ -54,7 +55,7 @@ public class Formkehoach extends javax.swing.JFrame {
         int i = 1;
         for (Sinhvien x : _lstSV) {
             if (x.isCheckfalse()) {
-                tbmodel.addRow(new Object[]{i++, x.getMasv(), x.getTensv(), "OK"});
+                tbmodel.addRow(new Object[]{i++, x.getMasv(), x.getTensv(), x.getTrangthai()});
             }
         }
     }
@@ -65,7 +66,7 @@ public class Formkehoach extends javax.swing.JFrame {
         int j = 1;
         for (Sinhvien x : _lstSV) {
             if (x.isCheckfalse() == false) {
-                tbmodel.addRow(new Object[]{j++, x.getMasv(), x.getTensv(), "NG"});
+                tbmodel.addRow(new Object[]{j++, x.getMasv(), x.getTensv(), x.getTrangthai()});
             }
         }
     }
@@ -86,19 +87,9 @@ public class Formkehoach extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbtruot = new javax.swing.JTable();
-        btnquiz = new javax.swing.JButton();
-        btndd2 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabtb.setBackground(new java.awt.Color(204, 255, 255));
@@ -123,13 +114,13 @@ public class Formkehoach extends javax.swing.JFrame {
         pndiemquiz.setLayout(pndiemquizLayout);
         pndiemquizLayout.setHorizontalGroup(
             pndiemquizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1225, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE)
         );
         pndiemquizLayout.setVerticalGroup(
             pndiemquizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pndiemquizLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
         );
 
         tabtb.addTab("Danh sách đủ điều kiện thi", pndiemquiz);
@@ -151,116 +142,21 @@ public class Formkehoach extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1225, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 985, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 491, Short.MAX_VALUE))
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE))
         );
 
         tabtb.addTab("Danh sách không đủ điều kiện thi", jPanel2);
 
-        getContentPane().add(tabtb, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 80, 1230, 530));
-
-        btnquiz.setBackground(new java.awt.Color(0, 204, 204));
-        btnquiz.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnquiz.setForeground(new java.awt.Color(255, 255, 255));
-        btnquiz.setIcon(new javax.swing.ImageIcon("D:\\duan1test\\Duan1test\\img\\file.png")); // NOI18N
-        btnquiz.setText("Nhập file Excel");
-        btnquiz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnquizActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnquiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
-
-        btndd2.setBackground(new java.awt.Color(0, 204, 204));
-        btndd2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndd2.setForeground(new java.awt.Color(255, 255, 255));
-        btndd2.setIcon(new javax.swing.ImageIcon("D:\\duan1test\\Duan1test\\img\\file.png")); // NOI18N
-        btndd2.setText("Chia lịch thi");
-        btndd2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndd2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btndd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\duan1test\\Duan1test\\bgr.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 670));
-
-        jMenu1.setText("File");
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setText("Import file Excel");
-        jMenu1.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("View");
-
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem4.setText("Nhập dữ liệu");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem5.setText("Kế hoạch thi");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
-            }
-        });
-        jMenu2.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Help");
-
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem6.setText("Đăng xuất");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu3.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
+        getContentPane().add(tabtb, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 990, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
-    private void btnquizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquizActionPerformed
-
-    }//GEN-LAST:event_btnquizActionPerformed
-
-    private void btndd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndd2ActionPerformed
-        // TODO add your handling code here:
-        Outputkehoachthi x =  new Outputkehoachthi();
-        Outputkehoachthi.getlstSV(_lstSV);
-        x.setVisible(true);
-    }//GEN-LAST:event_btndd2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,17 +194,6 @@ public class Formkehoach extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btndd2;
-    private javax.swing.JButton btnquiz;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

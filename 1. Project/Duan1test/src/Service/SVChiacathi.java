@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
+import model.Lop;
 import model.Sinhvien;
 
 /**
@@ -28,18 +29,11 @@ public class SVChiacathi {
         return x;
     }
 
-    public static List<Sinhvien> lstSVfinish(List<Sinhvien> _lstSV, List<String> ngaythi, int sobuoi, int sosv) {
-        if (sobuoi == 0) {
-            if (_lstSV.size() % sosv != 0) {
-                sobuoi = _lstSV.size() / sosv;
-            } else {
-                sobuoi = _lstSV.size() / sosv + 1;
-            }
-        }
-        for (int i = 0; 0 < sosv * sobuoi; i++) {
-            _lstSV.get(i).setNgaythi(ngaythi.get(i/sosv));
-            if (_lstSV.size() - i == 1) {
-                break;
+    public static List<Sinhvien> lstSVfinish(List<Sinhvien> _lstSV, List<String> ngaythi, int sosv, List<Integer> cathi) {
+        for (int i = 0; 0 < _lstSV.size(); i++) {
+            if (i<sosv) {
+                _lstSV.get(i).setCathi(cathi.get(0));
+                _lstSV.get(i).setNgaythi(ngaythi.get(0));
             }
         }
         return _lstSV;
@@ -55,13 +49,9 @@ public class SVChiacathi {
         return a;
     }
 
-    public static String formatdate(Date date) {
-        return new SimpleDateFormat("dd-MM-yyyy").format(date);
-    }
+
 
     public static void main(String[] args) {
-        for (Sinhvien sinhvien : lstSVfinish(fake(), ngay(), 3, 15)) {
-            System.out.println(sinhvien.getTensv() + "\t" + sinhvien.getNgaythi());
-        }
+
     }
 }
