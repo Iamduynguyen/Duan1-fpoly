@@ -18,6 +18,8 @@ import model.Diem;
 import model.Lop;
 import model.Sinhvien;
 import Service.SVinputdd;
+import javax.swing.JInternalFrame;
+import model.User;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 
@@ -25,7 +27,7 @@ import org.apache.poi.ss.usermodel.Workbook;
  *
  * @author dell
  */
-public class FormInput extends javax.swing.JFrame {
+public class FormInput extends JInternalFrame {
 
     DefaultTableModel tbmModel = new DefaultTableModel();
     DefaultTableModel tbmModeldd = new DefaultTableModel();
@@ -34,6 +36,7 @@ public class FormInput extends javax.swing.JFrame {
     static List<Diem> _lstdiem = new ArrayList<>();
     static List<Sinhvien> _lstSV = new ArrayList<>();
     static Lop _lop = new Lop();
+    static User _user = new User();
 
     /**
      * Creates new form mmm
@@ -41,9 +44,12 @@ public class FormInput extends javax.swing.JFrame {
     public FormInput() {
         initComponents();
         this.setTitle("Nhập dữ liệu");
-        setLocationRelativeTo(this);
         setResizable(false);
         setformtabquiz();
+    }
+
+    public static void setUserlog(User x) {
+        _user = x;
     }
 
     private void setformtabquiz() {
@@ -54,7 +60,6 @@ public class FormInput extends javax.swing.JFrame {
         tbmModel.setColumnCount(0);
         tbmModel.setRowCount(0);
         groupradio();
-        lblbgr.setIcon(new ImageIcon("img/bgr.jpg"));
         btnquiz.setIcon(new ImageIcon("img/file.png"));
         btndd1.setIcon(new ImageIcon("img/file.png"));
         btnnextform1.setIcon(new ImageIcon("img/next.png"));
@@ -150,10 +155,6 @@ public class FormInput extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToolBar1 = new javax.swing.JToolBar();
-        btndd1 = new javax.swing.JButton();
-        btnquiz = new javax.swing.JButton();
-        btnnextform1 = new javax.swing.JButton();
         tabtb = new javax.swing.JTabbedPane();
         pndiemquiz = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -167,64 +168,14 @@ public class FormInput extends javax.swing.JFrame {
         tbinput1 = new javax.swing.JTable();
         lbl_chek1 = new javax.swing.JLabel();
         txttilenghi = new javax.swing.JTextField();
-        lblbgr = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
+        btndd1 = new javax.swing.JButton();
+        btnquiz = new javax.swing.JButton();
+        btnnextform1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jToolBar1.setRollover(true);
-
-        btndd1.setBackground(new java.awt.Color(255, 255, 255));
-        btndd1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btndd1.setForeground(new java.awt.Color(255, 0, 51));
-        btndd1.setText("Nhập File điểm Quiz");
-        btndd1.setFocusable(false);
-        btndd1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btndd1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btndd1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndd1ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btndd1);
-
-        btnquiz.setBackground(new java.awt.Color(255, 255, 255));
-        btnquiz.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnquiz.setForeground(new java.awt.Color(255, 0, 51));
-        btnquiz.setText("Nhập File điểm danh");
-        btnquiz.setFocusable(false);
-        btnquiz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnquiz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnquiz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnquizActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btnquiz);
-
-        btnnextform1.setBackground(new java.awt.Color(255, 255, 255));
-        btnnextform1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnnextform1.setForeground(new java.awt.Color(255, 0, 51));
-        btnnextform1.setText("Danh sách thi");
-        btnnextform1.setFocusable(false);
-        btnnextform1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnnextform1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btnnextform1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnnextform1ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(btnnextform1);
-
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 60));
 
         tabtb.setBackground(new java.awt.Color(204, 255, 255));
         tabtb.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -258,16 +209,20 @@ public class FormInput extends javax.swing.JFrame {
         pndiemquizLayout.setHorizontalGroup(
             pndiemquizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pndiemquizLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(lbl_chek)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rd10)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(rd75)
-                .addGap(36, 36, 36)
-                .addComponent(lbllop, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(pndiemquizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(pndiemquizLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(lbl_chek)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rd10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(rd75)
+                        .addGap(36, 36, 36)
+                        .addComponent(lbllop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(pndiemquizLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1225, Short.MAX_VALUE)
         );
         pndiemquizLayout.setVerticalGroup(
             pndiemquizLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,7 +234,7 @@ public class FormInput extends javax.swing.JFrame {
                     .addComponent(lbl_chek)
                     .addComponent(lbllop, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 382, Short.MAX_VALUE))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
         );
 
         tabtb.addTab("Danh sách điểm Quiz", pndiemquiz);
@@ -299,102 +254,94 @@ public class FormInput extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tbinput1);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1205, 362));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1090, 280));
 
         lbl_chek1.setText("Tỉ lệ được phép nghỉ (%):");
         jPanel2.add(lbl_chek1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        txttilenghi.setText("25");
         jPanel2.add(txttilenghi, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 70, -1));
 
         tabtb.addTab("Danh sách điểm danh", jPanel2);
 
-        getContentPane().add(tabtb, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, 1230, 450));
-        getContentPane().add(lblbgr, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1380, 670));
+        getContentPane().add(tabtb, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 1120, 370));
 
-        jMenu1.setText("File");
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_I, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem3.setText("Import file Excel");
-        jMenu1.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("View");
-
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem4.setText("Danh sách thi");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        btndd1.setBackground(new java.awt.Color(255, 255, 255));
+        btndd1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btndd1.setForeground(new java.awt.Color(255, 0, 51));
+        btndd1.setText("Nhập File điểm Quiz");
+        btndd1.setFocusable(false);
+        btndd1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btndd1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btndd1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                btndd1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem4);
+        getContentPane().add(btndd1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem5.setText("Kế hoạch thi");
-        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+        btnquiz.setBackground(new java.awt.Color(255, 255, 255));
+        btnquiz.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnquiz.setForeground(new java.awt.Color(255, 0, 51));
+        btnquiz.setText("Nhập File điểm danh");
+        btnquiz.setFocusable(false);
+        btnquiz.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnquiz.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnquiz.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem5ActionPerformed(evt);
+                btnquizActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem5);
+        getContentPane().add(btnquiz, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
 
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Help");
-
-        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        jMenuItem6.setText("Đăng xuất");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+        btnnextform1.setBackground(new java.awt.Color(255, 255, 255));
+        btnnextform1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnnextform1.setForeground(new java.awt.Color(255, 0, 51));
+        btnnextform1.setText("Kiểm tra điều kiện thi");
+        btnnextform1.setFocusable(false);
+        btnnextform1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnnextform1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnnextform1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
+                btnnextform1ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem6);
+        getContentPane().add(btnnextform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 470, -1, -1));
 
-        jMenuBar1.add(jMenu3);
-
-        setJMenuBar(jMenuBar1);
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void btnquizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnquizActionPerformed
 //        String l ="C:\\Users\\dell\\Desktop\\ppp.xlsx";
         if (SVinputdd.isfilediemdanh(_lstSV, SVinputdd.getListdd(SVinput.getwb(chooser())))) {
-            JOptionPane.showMessageDialog(rootPane, "nhap dung");
+            tabtb.setSelectedIndex(1);
             loadtbdd(_lstSV);
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "nhap sai");
         }
-        JOptionPane.showMessageDialog(rootPane, "nhap sai");
     }//GEN-LAST:event_btnquizActionPerformed
 
     private void btndd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndd1ActionPerformed
         String path = chooser();
         Workbook wb = Service.SVinput.getwb(path);
-        Lop lop = Service.SVinput.getlop(wb);
-        if (lop.getCheck() == 1) {
+        _lop = Service.SVinput.getlop(wb);
+        _lop.setMauser("duytn");
+        DAO.DAOinsert.insertLOP(_lop);
+        if (_lop.getCheck() == 1) {
             loadtbquiz(path);
-            lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
-        } else if (lop.getCheck() == 2) {
+            lbllop.setText("Lớp: " + _lop.getMalop() + "\t Môn: " + _lop.getMamon() + "\t Kì học: " + _lop.getKihoc() + "\t Thời gian: " + _lop.getThoigian());
+        } else if (_lop.getCheck() == 2) {
             loadtbquiz(path);
-            lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
+            lbllop.setText("Lớp: " + _lop.getMalop() + "\t Môn: " + _lop.getMamon() + "\t Kì học: " + _lop.getKihoc() + "\t Thời gian: " + _lop.getThoigian());
         } else {
             lbllop.setText("");
             tbmModel.setColumnCount(0);
             tbmModel.setRowCount(0);
             loadtbquiz(path);
-            lbllop.setText("Lớp: " + lop.getMalop() + "\t Môn: " + lop.getMamon() + "\t Kì học: " + lop.getKihoc() + "\t Thời gian: " + lop.getThoigian());
+            lbllop.setText("Lớp: " + _lop.getMalop() + "\t Môn: " + _lop.getMamon() + "\t Kì học: " + _lop.getKihoc() + "\t Thời gian: " + _lop.getThoigian());
         }
     }//GEN-LAST:event_btndd1ActionPerformed
 
@@ -409,17 +356,23 @@ public class FormInput extends javax.swing.JFrame {
             return;
         }
         for (int i = 0; i < _lstSV.size(); i++) {
-            if (Service.SVcheckdk.checksv(_lstdiem.get(i), _lop, a) && _lstSV.get(i).getTilenghi() <= b) {
-                _lstSV.get(i).setCheckfalse(true);
-            } else {
+            if (_lstSV.get(i).getTilenghi() > b) {
                 _lstSV.get(i).setCheckfalse(false);
+                _lstSV.get(i).setTrangthai("Điểm danh không đạt yêu cầu");
+            } else if (Service.SVcheckdk.checksv(_lstdiem.get(i), _lop, a) == false) {
+                _lstSV.get(i).setCheckfalse(false);
+                _lstSV.get(i).setTrangthai("Điểm Quiz không đạt yêu cầu");
+            } else {
+                _lstSV.get(i).setCheckfalse(true);
+                _lstSV.get(i).setTrangthai("OK");
             }
         }
-        Formkehoach.getlop(_lop);
-        Formkehoach.getlstsv(_lstSV);
-        Formkehoach.getlstdiem(_lstdiem);
-        Formkehoach x = new Formkehoach();
-        x.setVisible(true);
+        FormMain.setlop(_lop);
+        FormMain.setlstSV(_lstSV);
+        DAO.DAOinsert.insertLOP(_lop);
+        for (Sinhvien sinhvien : _lstSV) {
+            DAO.DAOinsert.insertSV(sinhvien);
+        }
     }//GEN-LAST:event_btnnextform1ActionPerformed
 
     /**
@@ -468,21 +421,12 @@ public class FormInput extends javax.swing.JFrame {
     private javax.swing.JButton btndd1;
     private javax.swing.JButton btnnextform1;
     private javax.swing.JButton btnquiz;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JLabel lbl_chek;
     private javax.swing.JLabel lbl_chek1;
-    private javax.swing.JLabel lblbgr;
     private javax.swing.JLabel lbllop;
     private javax.swing.JPanel pndiemquiz;
     private javax.swing.JRadioButton rd10;

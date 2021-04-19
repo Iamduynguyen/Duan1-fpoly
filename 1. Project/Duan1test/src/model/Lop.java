@@ -16,9 +16,20 @@ public class Lop {
     private String thoigian;
     private String kihoc;
     private int sodiemquiz;
+    private String mauser;
 
     public Lop() {
     }
+
+    public String getMauser() {
+        return mauser;
+    }
+
+    public void setMauser(String mauser) {
+        this.mauser = mauser;
+    }
+    
+    
 
     public int getSodiemquiz() {
         return sodiemquiz;
