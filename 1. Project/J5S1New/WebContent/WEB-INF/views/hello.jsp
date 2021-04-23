@@ -139,8 +139,7 @@ td {
       <button
         class="tablinks"
         onclick="openTab(event, 'Diem')"
-        id="defaultOpen"
-      >
+        id="defaultOpen">
         Danh sách điểm sinh viên
       </button>
       <button class="tablinks" onclick="openTab(event, 'Diem danh')">
@@ -156,7 +155,13 @@ td {
         
       </table>
     </div>
+<div id="defaultOpen" class="tablinks">
+<table style="width: 100%">
+        <tr>
+         
+        </tr>
 
+</div>
     <div id="Diem danh" class="tabcontent">
       <h3>Điểm danh</h3>
       <table style="width: 100%">
@@ -166,6 +171,77 @@ td {
           <th>Tên SV</th>
           <th>Số buổi vắng</th>
           <th>Trạng thái</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+          <td>1</td>
+          <td>Đạt</td>
+        </tr>
+
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+          <td>4</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+          <td>1</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+          <td>4</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+          <td>1</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+          <td>4</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+          <td>1</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+          <td>4</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>PH11111</td>
+          <td>Hồ Viết Thành</td>
+          <td>1</td>
+          <td>Đạt</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>PH11112</td>
+          <td>ABC</td>
+          <td>4</td>
+          <td>Đạt</td>
         </tr>
         <tr>
           <td>1</td>
