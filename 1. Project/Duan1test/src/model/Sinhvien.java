@@ -42,9 +42,6 @@ public class Sinhvien {
     public void setCathi(int cathi) {
         this.cathi = cathi;
     }
-    
-    
-    
 
     public Sinhvien() {
     }
@@ -90,7 +87,4 @@ public class Sinhvien {
     public void setMalop(String malop) {
         this.malop = malop;
     }
-
-   
-    
 }
