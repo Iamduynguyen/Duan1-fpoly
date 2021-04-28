@@ -46,6 +46,7 @@ public class FormInput extends JInternalFrame {
         this.setTitle("Nhập dữ liệu");
         setResizable(false);
         setformtabquiz();
+        lbanh.setIcon(new ImageIcon("img/bgr.jpg"));
     }
 
     public static void setUserlog(User x) {
@@ -171,7 +172,7 @@ public class FormInput extends JInternalFrame {
         btndd1 = new javax.swing.JButton();
         btnquiz = new javax.swing.JButton();
         btnnextform1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lbanh = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -308,8 +309,8 @@ public class FormInput extends JInternalFrame {
         });
         getContentPane().add(btnnextform1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 470, -1, -1));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1190, 540));
+        lbanh.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lbanh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1210, 540));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -358,10 +359,10 @@ public class FormInput extends JInternalFrame {
         for (int i = 0; i < _lstSV.size(); i++) {
             if (_lstSV.get(i).getTilenghi() > b) {
                 _lstSV.get(i).setCheckfalse(false);
-                _lstSV.get(i).setTrangthai("Điểm danh không đạt yêu cầu");
+                _lstSV.get(i).setTrangthai("Trượt điểm danh");
             } else if (Service.SVcheckdk.checksv(_lstdiem.get(i), _lop, a) == false) {
                 _lstSV.get(i).setCheckfalse(false);
-                _lstSV.get(i).setTrangthai("Điểm Quiz không đạt yêu cầu");
+                _lstSV.get(i).setTrangthai("Trượt điểm Quizz");
             } else {
                 _lstSV.get(i).setCheckfalse(true);
                 _lstSV.get(i).setTrangthai("OK");
@@ -369,7 +370,6 @@ public class FormInput extends JInternalFrame {
         }
         FormMain.setlop(_lop);
         FormMain.setlstSV(_lstSV);
-        DAO.DAOinsert.insertLOP(_lop);
         for (Sinhvien sinhvien : _lstSV) {
             DAO.DAOinsert.insertSV(sinhvien);
         }
@@ -421,10 +421,10 @@ public class FormInput extends JInternalFrame {
     private javax.swing.JButton btndd1;
     private javax.swing.JButton btnnextform1;
     private javax.swing.JButton btnquiz;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lbanh;
     private javax.swing.JLabel lbl_chek;
     private javax.swing.JLabel lbl_chek1;
     private javax.swing.JLabel lbllop;

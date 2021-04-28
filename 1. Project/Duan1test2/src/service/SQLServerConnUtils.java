@@ -11,9 +11,9 @@ public class SQLServerConnUtils {
 	public static Connection getSQLServerConnection() throws SQLException, ClassNotFoundException {
 		String hostName = "localhost";
 		String sqlInstanceName = "SQL1";
-		String database = "DUAN1";
-		String userName = "sa";
-		String password = "123";
+		String database = "DUAN1s";
+		String userName = "duy";
+		String password = "1";
 
 		return getSQLServerConnection(hostName, sqlInstanceName, database, userName, password);
 	}
@@ -37,5 +37,8 @@ public class SQLServerConnUtils {
 		Connection conn = DriverManager.getConnection(connectionURL, userName, password);
 		return conn;
 	}
+        public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        getSQLServerConnection();
+    }
 
 }

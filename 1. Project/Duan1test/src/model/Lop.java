@@ -17,10 +17,21 @@ public class Lop {
     private String kihoc;
     private int sodiemquiz;
     private String mauser;
+    private String tenlop;
 
     public Lop() {
     }
 
+    public String getTenlop() {
+        return tenlop;
+    }
+
+    public void setTenlop(String tenlop) {
+        this.tenlop = tenlop;
+    }
+
+    
+    
     public String getMauser() {
         return mauser;
     }

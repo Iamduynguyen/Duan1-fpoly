@@ -30,14 +30,28 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class Writefile {
 
-    public static void writeBS(List<String> ngathi, List<Sinhvien> lstsv, Lop lop, List<Integer> cathi) {
+    public static void writeBS(List<String> ngathi, Lop lop, List<Integer> cathi, List<Sinhvien> lstsv1, List<Sinhvien> lstsv2, List<Sinhvien> lstsv3, List<Sinhvien> lstsv4) {
         try {
 //			Blank workbook
             XSSFWorkbook workbook = new XSSFWorkbook();
             for (int x = 0; x < ngathi.size(); x++) {
-
+                List<Sinhvien> lstsv = new ArrayList<>();
+                if (x == 0) {
+                    lstsv = lstsv1;
+                }
+                if (x == 1) {
+                    lstsv = lstsv2;
+                }
+                if (x == 2) {
+                    lstsv = lstsv3;
+                }
+                if (x == 3) {
+                    lstsv = lstsv4;
+                }
+                String sheetname = "Buổi " + (x + 1);
 //			Create a blank sheet
-                XSSFSheet sheet = workbook.createSheet(ngathi.get(x));
+//                String namesheet = ngathi.get(x)+" ca "+cathi.get(x);
+                XSSFSheet sheet = workbook.createSheet(sheetname);
                 /*			On an Excel spreadsheet, you can set a column width of 0 to 255, 
 			with one unit equal to the width of one character that can be displayed in a cell formatted with the standard font. 
 			public void setColumnWidth(int columnIndex, int width)
@@ -141,17 +155,17 @@ public class Writefile {
 
                 cell = detail3.createCell(0);
                 cell.setCellStyle(detailStyleLeftAlign);
-                String examDate = ngathi.get(x);
+                String examDate = "Ngày thi:  " + ngathi.get(x);
                 cell.setCellValue(examDate);
 
                 cell = detail3.createCell(3);
                 cell.setCellStyle(detailStyleRightAlign);
-                String examTime = "Giá»� thi: " + "16:20:00 Ä‘áº¿n: 18:20:00";
+                String examTime = "Giờ thi: " + "16:20:00 đến: 18:20:00";
                 cell.setCellValue(examTime);
 
                 cell = detail3.createCell(5);
                 cell.setCellStyle(detailStyleLeftAlign);
-                String examType = "Láº§n thi: " + "Báº£o vá»‡";
+                String examType = "Lần thi: " + "bảo vệ";
                 cell.setCellValue(examType);
 
 //			Add FPT Logo
@@ -229,7 +243,7 @@ public class Writefile {
 
                 cell = footer1.createCell(1);
                 cell.setCellStyle(defaultStyle);
-                cell.setCellValue("Tá»•ng sá»‘ SV dá»± thi:");
+                cell.setCellValue("Tổng số Sinh viên dự thi:");
 
                 cell = footer1.createCell(3);
                 cell.setCellStyle(defaultStyle);
@@ -238,7 +252,7 @@ public class Writefile {
 
                 cell = footer2.createCell(0);
                 cell.setCellStyle(defaultStyleCenterAlign);
-                cell.setCellValue("GiĂ¡m thá»‹ 1");
+                cell.setCellValue("Giám thị 1");
 //			Merge cell 
                 firstRow = lstsv.size() + 8;
                 lastRow = firstRow;
@@ -248,7 +262,7 @@ public class Writefile {
 
                 cell = footer2.createCell(3);
                 cell.setCellStyle(defaultStyleCenterAlign);
-                cell.setCellValue("GiĂ¡m thá»‹ 2");
+                cell.setCellValue("Giám thị 2");
 //			Merge cell 
                 firstRow = lstsv.size() + 8;
                 lastRow = firstRow;
@@ -281,12 +295,11 @@ public class Writefile {
 //			Dá»¯ liá»‡u chĂ­nh
 //			This data needs to be written (Object[])
                 Map<Integer, Object[]> data = new TreeMap<Integer, Object[]>();
-                data.put(1, new Object[]{"TT", "MSSV", "Họ tên", "Lớp", "Ký tên", "Điểm", "Ghi chú"});
-                for (int i = 1; i <= 13; i++) {
+                data.put(0, new Object[]{"TT", "MSSV", "Họ tên", "Lớp", "Ký tên", "Điểm", "Ghi chú"});
+                int i = 1;
                 for (Sinhvien sv : lstsv) {
-                    data.put(i + 1, new Object[]{i, sv.getMasv(), sv.getTensv(), lop.getMalop(), cathi.get(x), "", ""});
+                    data.put(i, new Object[]{i, sv.getMasv(), sv.getTensv(), lop.getMalop(), "", "", ""});
                     i++;
-                }
                 }
 
 //                // Iterate over data and write to sheet
@@ -347,7 +360,37 @@ public class Writefile {
 
     public static List<Sinhvien> fakelst() {
         List<Sinhvien> lst = new ArrayList<>();
-        for (int i = 0; i < 13; i++) {
+        for (int i = 0; i < 6; i++) {
+            Sinhvien sv = new Sinhvien();
+            sv.setMasv("" + i);
+            lst.add(sv);
+        }
+        return lst;
+    }
+
+    public static List<Sinhvien> fakelst2() {
+        List<Sinhvien> lst = new ArrayList<>();
+        for (int i = 0; i < 2; i++) {
+            Sinhvien sv = new Sinhvien();
+            sv.setMasv("" + i);
+            lst.add(sv);
+        }
+        return lst;
+    }
+
+    public static List<Sinhvien> fakelst3() {
+        List<Sinhvien> lst = new ArrayList<>();
+        for (int i = 0; i < 7; i++) {
+            Sinhvien sv = new Sinhvien();
+            sv.setMasv("" + i);
+            lst.add(sv);
+        }
+        return lst;
+    }
+
+    public static List<Sinhvien> fakelst4() {
+        List<Sinhvien> lst = new ArrayList<>();
+        for (int i = 0; i < 8; i++) {
             Sinhvien sv = new Sinhvien();
             sv.setMasv("" + i);
             lst.add(sv);
@@ -360,6 +403,7 @@ public class Writefile {
         a.add("a");
         a.add("b");
         a.add("c");
+        a.add("k");
         List<Sinhvien> lstsv = new ArrayList<>();
         Lop lop = new Lop();
         lop.setMalop("abc");
@@ -369,7 +413,7 @@ public class Writefile {
         cathi.add(1);
         cathi.add(2);
         cathi.add(3);
-        writeBS(a, fakelst(), lop, cathi);
+        writeBS(a, lop, cathi, fakelst(), fakelst2(), fakelst3(), fakelst());
     }
 
 }

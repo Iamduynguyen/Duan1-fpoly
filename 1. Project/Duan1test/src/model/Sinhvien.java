@@ -18,6 +18,28 @@ public class Sinhvien {
     private String ngaythi;
     private String trangthai;
     private int cathi= 0;
+    private int mangay;
+    private String phongthi;
+
+    public String getPhongthi() {
+        return phongthi;
+    }
+
+    public void setPhongthi(String phongthi) {
+        this.phongthi = phongthi;
+    }
+    
+    
+
+    public int getMangay() {
+        return mangay;
+    }
+
+    public void setMangay(int mangay) {
+        this.mangay = mangay;
+    }
+    
+    
 
     public String getNgaythi() {
         return ngaythi;

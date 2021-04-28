@@ -54,4 +54,14 @@ public class SVChiacathi {
     public static void main(String[] args) {
 
     }
+    
+    public static int countsv(List<Sinhvien> lst){
+        int count = 0;
+        for (Sinhvien sinhvien : lst) {
+            if (sinhvien.isCheckfalse()) {
+                count++;
+            }
+        }
+        return count;
+    }
 }

@@ -10,6 +10,7 @@ import static View.Formkehoach._lop1;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ButtonGroup;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -29,7 +30,12 @@ public class Outputkehoachthi extends JInternalFrame {
     DefaultTableModel tbmode3 = new DefaultTableModel();
     DefaultTableModel tbmode4 = new DefaultTableModel();
     static List<Sinhvien> _lstSV;
+    static List<Sinhvien> _lstSV1 = new ArrayList<>();
+    static List<Sinhvien> _lstSV2 = new ArrayList<>();
+    static List<Sinhvien> _lstSV3 = new ArrayList<>();
+    static List<Sinhvien> _lstSV4 = new ArrayList<>();
     List<String> _ngaythi = new ArrayList<>();
+    List<String> _phongthi = new ArrayList<>();
     int index = 1;
     List<Integer> cathi = new ArrayList<>();
     static Lop _lop;
@@ -44,6 +50,8 @@ public class Outputkehoachthi extends JInternalFrame {
         radioaction();
         spinsosv.setValue(13);
         setbuoithi();
+        this.setTitle("Form chia ca thi");
+        lbanh.setIcon(new ImageIcon("img/bgr.jpg"));
     }
 
     public static void getlop(Lop x) {
@@ -99,29 +107,43 @@ public class Outputkehoachthi extends JInternalFrame {
         tbmode2.setRowCount(0);
         tbmode3 = (DefaultTableModel) tb3.getModel();
         tbmode3.setRowCount(0);
+        tbmode4 = (DefaultTableModel) tb4.getModel();
+        tbmode4.setRowCount(0);
         String[] namecolums = {"STT", "Mã SV", "Tên SV", "Lớp", "Ngày thi", "Ca thi"};
         int i = 0;
         for (Sinhvien x : lst) {
             if (x.isCheckfalse()) {
-                if (i <= sosv) {
+                if (i < sosv) {
+                    x.setPhongthi(_phongthi.get(0));
                     x.setCathi(cathi.get(0));
                     x.setNgaythi(ngaythi.get(0));
+                    x.setMangay(1);
+                    _lstSV1.add(x);
                     tbmode1.addRow(new Object[]{i + 1, x.getMasv(), x.getTensv(), x.getCathi()});
                 }
-                if (i > sosv && i <= sosv * 2 && buoithi > 1) {
+                if (i >= sosv && i < sosv * 2 && buoithi > 1) {
+                    x.setPhongthi(_phongthi.get(1));
                     x.setCathi(cathi.get(1));
                     x.setNgaythi(ngaythi.get(1));
-                    tbmode2.addRow(new Object[]{i + 1, x.getMasv(), x.getTensv(), x.getCathi()});
+                    x.setMangay(2);
+                    _lstSV2.add(x);
+                    tbmode2.addRow(new Object[]{(i + 1) - sosv, x.getMasv(), x.getTensv(), x.getCathi()});
                 }
-                if (i > sosv * 2 && i < sosv * 3 && buoithi > 2) {
+                if (i >= sosv * 2 && i < sosv * 3 && buoithi > 2) {
+                    x.setPhongthi(_phongthi.get(2));
                     x.setCathi(cathi.get(2));
                     x.setNgaythi(ngaythi.get(2));
-                    tbmode3.addRow(new Object[]{i + 1, x.getMasv(), x.getTensv(), x.getCathi()});
+                    x.setMangay(3);
+                    _lstSV3.add(x);
+                    tbmode3.addRow(new Object[]{(i + 1) - sosv * 2, x.getMasv(), x.getTensv(), x.getCathi()});
                 }
-                if (i > sosv * 3 && i <= sosv * 4 && buoithi >3) {
+                if (i >= sosv * 3 && i < sosv * 4 && buoithi > 3) {
+                    x.setPhongthi(_phongthi.get(3));
                     x.setCathi(cathi.get(3));
                     x.setNgaythi(ngaythi.get(3));
-                    tbmode3.addRow(new Object[]{i + 1, x.getMasv(), x.getTensv(), x.getCathi()});
+                    x.setMangay(4);
+                    _lstSV4.add(x);
+                    tbmode4.addRow(new Object[]{(i + 1) - sosv * 3, x.getMasv(), x.getTensv(), x.getCathi()});
                 }
                 i++;
             }
@@ -140,7 +162,7 @@ public class Outputkehoachthi extends JInternalFrame {
     }
 
     void setbuoithi() {
-        int tongsosv = 40;
+        int tongsosv = SVChiacathi.countsv(_lstSV);
         int sovv = (int) spinsosv.getValue();
         if (tongsosv / sovv < 5 && tongsosv / sovv > 0) {
             if (tongsosv % sovv == 0) {
@@ -161,7 +183,7 @@ public class Outputkehoachthi extends JInternalFrame {
     }
 
     void setsosv() {
-        int tongsosv = 40;
+        int tongsosv = SVChiacathi.countsv(_lstSV);
         int sobuoi = (int) spinsobuoi.getValue();
         if (tongsosv % sobuoi == 0) {
             spinsosv.setValue(tongsosv / sobuoi);
@@ -204,7 +226,10 @@ public class Outputkehoachthi extends JInternalFrame {
         jLabel8 = new javax.swing.JLabel();
         cbbcahoc = new javax.swing.JComboBox<>();
         btnnhapfilenhom1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        txtphongthi = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        lbanh = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -344,7 +369,7 @@ public class Outputkehoachthi extends JInternalFrame {
         jLabel8.setText("Ngày:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, -1, 20));
 
-        cbbcahoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ca1", "Ca 1", "Ca 3", "Ca4", "Ca 5", "Ca6" }));
+        cbbcahoc.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ca1", "Ca 2", "Ca 3", "Ca4", "Ca 5", "Ca6" }));
         jPanel1.add(cbbcahoc, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, 100, -1));
 
         btnnhapfilenhom1.setText("Luu DB");
@@ -355,11 +380,29 @@ public class Outputkehoachthi extends JInternalFrame {
         });
         jPanel1.add(btnnhapfilenhom1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 120, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Phong thi:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 44, -1, 20));
+
+        txtphongthi.setText("P301");
+        txtphongthi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtphongthiActionPerformed(evt);
+            }
+        });
+        jPanel1.add(txtphongthi, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, 60, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 1070, 70));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Xuat file Excel");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 500, 150, 30));
+        getContentPane().add(lbanh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 550));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -380,6 +423,11 @@ public class Outputkehoachthi extends JInternalFrame {
                     lblbuoithi.setText("Buổi thi thứ 4");
                     break;
             }
+            if (txtphongthi.getText() != null) {
+                _phongthi.add(txtphongthi.getText());
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "moi ban nhap phong thi");
+            }
             try {
                 _ngaythi.add(Help.Formartday.formatdateDD(datechooser.getDate()));
             } catch (Exception e) {
@@ -396,6 +444,11 @@ public class Outputkehoachthi extends JInternalFrame {
                 cathi.add(cbbcahoc.getSelectedIndex() + 1);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(rootPane, "Mời bạn nhập ngày thi");
+            }
+            if (txtphongthi.getText() != null) {
+                _phongthi.add(txtphongthi.getText());
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "moi ban nhap phong thi");
             }
             addtab(sobuoi, _ngaythi);
             loadtb(_lstSV, sosv, sobuoi, _ngaythi, cathi);
@@ -441,10 +494,24 @@ public class Outputkehoachthi extends JInternalFrame {
 
     private void btnnhapfilenhom1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnhapfilenhom1ActionPerformed
         // TODO add your handling code here:
+        for (int i = 0; i < _ngaythi.size(); i++) {
+            DAO.DAOinsert.insertngaythi(_ngaythi.get(i), i + 1);
+        }
         for (Sinhvien sinhvien : _lstSV) {
             DAO.DAOinsert.insertSVLOP(sinhvien, _lop);
+//            System.out.println(sinhvien.getMangay());
         }
     }//GEN-LAST:event_btnnhapfilenhom1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Service.Writefile.writeBS(_ngaythi, _lop, cathi, _lstSV1, _lstSV2, _lstSV3, _lstSV4);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtphongthiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtphongthiActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtphongthiActionPerformed
 
     /**
      * @param args the command line arguments
@@ -489,6 +556,7 @@ public class Outputkehoachthi extends JInternalFrame {
     private javax.swing.JComboBox<String> cbbcahoc;
     private com.toedter.calendar.JDateChooser datechooser;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -498,6 +566,7 @@ public class Outputkehoachthi extends JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JLabel lbanh;
     private javax.swing.JLabel lblbuoithi;
     private javax.swing.JRadioButton rdTudong;
     private javax.swing.JRadioButton rdthucong;
@@ -508,5 +577,6 @@ public class Outputkehoachthi extends JInternalFrame {
     private javax.swing.JTable tb2;
     private javax.swing.JTable tb3;
     private javax.swing.JTable tb4;
+    private javax.swing.JTextField txtphongthi;
     // End of variables declaration//GEN-END:variables
 }

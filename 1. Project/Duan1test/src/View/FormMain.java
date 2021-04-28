@@ -5,8 +5,10 @@
  */
 package View;
 
+import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import model.Lop;
 import model.Sinhvien;
 import model.User;
@@ -26,6 +28,20 @@ public class FormMain extends javax.swing.JFrame {
      */
     public FormMain() {
         initComponents();
+        ImageIcon image = new ImageIcon("img/logofpoly.png");
+        image.setImageObserver(rootPane);
+        lblogo.setIcon(image);
+//        setform();
+    }
+    
+    void setform(){
+        if (_lstSV==null) {
+            btnsetdk.setEnabled(false);
+            btnchiaca.setEnabled(false);
+        }else{
+            btnsetdk.setEnabled(true);
+            btnchiaca.setEnabled(true);
+        }
     }
 
     public static void getuserlog(User x) {
@@ -63,6 +79,14 @@ public class FormMain extends javax.swing.JFrame {
         x.setVisible(a);
     }
 
+    public void actionform4(boolean a) {
+        Thongke._lstSV = _lstSV;
+        Thongke._lop = _lop;
+        Thongke x = new Thongke();
+        dtpane.add(x);
+        x.setVisible(a);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -76,7 +100,9 @@ public class FormMain extends javax.swing.JFrame {
         btninput = new javax.swing.JButton();
         btnsetdk = new javax.swing.JButton();
         btnchiaca = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         dtpane = new javax.swing.JDesktopPane();
+        lblogo = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -135,15 +161,36 @@ public class FormMain extends javax.swing.JFrame {
         });
         jToolBar1.add(btnchiaca);
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 0, 0));
+        jButton1.setText("Thống kê");
+        jButton1.setFocusable(false);
+        jButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(jButton1);
+
+        dtpane.setLayer(lblogo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout dtpaneLayout = new javax.swing.GroupLayout(dtpane);
         dtpane.setLayout(dtpaneLayout);
         dtpaneLayout.setHorizontalGroup(
             dtpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1400, Short.MAX_VALUE)
+            .addGroup(dtpaneLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(lblogo, javax.swing.GroupLayout.PREFERRED_SIZE, 1269, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
         dtpaneLayout.setVerticalGroup(
             dtpaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 627, Short.MAX_VALUE)
+            .addGroup(dtpaneLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lblogo, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(159, Short.MAX_VALUE))
         );
 
         jMenu1.setText("File");
@@ -218,10 +265,12 @@ public class FormMain extends javax.swing.JFrame {
 
     private void btninputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btninputActionPerformed
         actionform1(true);
+        setform();
     }//GEN-LAST:event_btninputActionPerformed
 
     private void btnsetdkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsetdkActionPerformed
         actionform2(true);
+        
     }//GEN-LAST:event_btnsetdkActionPerformed
 
     private void btnchiacaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnchiacaActionPerformed
@@ -239,7 +288,16 @@ public class FormMain extends javax.swing.JFrame {
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         // TODO add your handling code here:
+        Login x= new Login();
+        x.setVisible(true);
+        this.disable();
     }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        actionform4(true);
+        setform();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -281,6 +339,7 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JButton btninput;
     private javax.swing.JButton btnsetdk;
     private javax.swing.JDesktopPane dtpane;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -290,5 +349,6 @@ public class FormMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JToolBar jToolBar1;
+    private javax.swing.JLabel lblogo;
     // End of variables declaration//GEN-END:variables
 }

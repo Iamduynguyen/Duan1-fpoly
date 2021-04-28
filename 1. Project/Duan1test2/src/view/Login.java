@@ -122,7 +122,11 @@ public class Login extends javax.swing.JFrame {
 					System.out.println(tempuser.getPassword());
 					if (tempuser.getPassword().equalsIgnoreCase(password)) {
 						user = tempuser;
+                                                FormMain formMain = new FormMain();
+                                                formMain.setVisible(true);
+                                                FormMain.getuserlog(user);
 						this.setVisible(false);
+                                                return;
 					}					
 				}
 				JOptionPane.showMessageDialog(rootPane, "Sai tài khoản/mật khẩu");
@@ -173,7 +177,7 @@ public class Login extends javax.swing.JFrame {
 		});
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
+	// Variables declaration - do not modify                     
 	private javax.swing.JButton btnLogin;
 	private javax.swing.JButton btnQuit;
 	private javax.swing.JLabel lblUsername;

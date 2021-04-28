@@ -41,6 +41,14 @@ public class DbUserDAO implements userDAO {
 		}
 		return users;
 	}
+        
+        public static void main(String[] args) {
+            try {
+                DbUserDAO x =new DbUserDAO();
+                System.out.println(x.getAll().get(0).getUsername());
+            } catch (Exception e) {
+            }
+    }
 
 	@Override
 	public User getById(String username) throws Exception {

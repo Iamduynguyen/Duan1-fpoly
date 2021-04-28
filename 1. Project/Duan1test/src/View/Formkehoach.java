@@ -9,6 +9,7 @@ import Service.SVcheckdk;
 import Service.SVinput;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -31,6 +32,7 @@ public class Formkehoach extends JInternalFrame {
         initComponents();
         loadtbok();
         loadtbNg();
+        lbanh.setIcon(new ImageIcon("img/bgr.jpg"));
     }
 
     static Lop _lop1 = new Lop();
@@ -87,6 +89,7 @@ public class Formkehoach extends JInternalFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tbtruot = new javax.swing.JTable();
+        lbanh = new javax.swing.JLabel();
 
         setClosable(true);
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -105,7 +108,7 @@ public class Formkehoach extends JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã sinh viên", "Tên sinh viên", "Lớp", "Trạng thái"
             }
         ));
         jScrollPane2.setViewportView(tbdudk);
@@ -133,7 +136,7 @@ public class Formkehoach extends JInternalFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Mã sinh viên", "Tên sinh viên", "Lớp", "Trạng thái"
             }
         ));
         jScrollPane3.setViewportView(tbtruot);
@@ -154,6 +157,7 @@ public class Formkehoach extends JInternalFrame {
         tabtb.addTab("Danh sách không đủ điều kiện thi", jPanel2);
 
         getContentPane().add(tabtb, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 990, 370));
+        getContentPane().add(lbanh, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 470));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -197,6 +201,7 @@ public class Formkehoach extends JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lbanh;
     private javax.swing.JPanel pndiemquiz;
     private javax.swing.JTabbedPane tabtb;
     private javax.swing.JTable tbdudk;
